@@ -1,7 +1,0 @@
-packages:
-  - 'live/*'
-minimumReleaseAgeExclude:
-  - semantic-release-workspace@1.0.0-alpha.2
-linkWorkspacePackages: true
-allowBuilds:
-  pnpm: true
