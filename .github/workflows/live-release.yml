@@ -42,7 +42,7 @@ jobs:
           command -v pnpm >> evidence/native-tools.txt
           pnpm --version >> evidence/native-tools.txt
           echo "ACCEPTANCE_NPM_PATH=$(dirname "$(command -v npm)")" >> "$GITHUB_ENV"
-      - run: node --test scripts/registry-read.test.mjs scripts/network-count.test.mjs scripts/live-plan.test.mjs scripts/without-publish-credentials.test.mjs scripts/workflow-credential-boundary.test.mjs
+      - run: node --test scripts/registry-read.test.mjs scripts/network-count.test.mjs scripts/live-plan.test.mjs scripts/without-publish-credentials.test.mjs scripts/workflow-credential-boundary.test.mjs scripts/published-provenance.test.mjs
       - run: node scripts/live-proof.mjs baseline
       - run: node scripts/live-guard.mjs before
       - name: Read-only exact one-package preview
