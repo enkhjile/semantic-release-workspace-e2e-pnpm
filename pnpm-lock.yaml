@@ -176,27 +176,13 @@ importers:
         specifier: 1.0.0-alpha.3
         version: 1.0.0-alpha.3(semantic-release@25.0.9(supports-color@7.2.0))(supports-color@7.2.0)
 
-  packages/app:
+  live/app:
     dependencies:
-      '@srw-e2e/pnpm-core':
+      '@enkhjile/srw-e2e-pnpm-core':
         specifier: 1.0.0
         version: link:../core
 
-  packages/core: {}
-
-  packages/dev:
-    devDependencies:
-      '@srw-e2e/pnpm-core':
-        specifier: 1.0.0
-        version: link:../core
-
-  packages/peer:
-    dependencies:
-      '@srw-e2e/pnpm-core':
-        specifier: 1.0.0
-        version: link:../core
-
-  packages/private: {}
+  live/core: {}
 
 packages:
 
