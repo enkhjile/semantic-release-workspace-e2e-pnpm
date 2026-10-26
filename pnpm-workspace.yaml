@@ -1,7 +1,8 @@
 packages:
-  - 'packages/*'
+  - 'live/app'
 minimumReleaseAgeExclude:
   - semantic-release-workspace@1.0.0-alpha.2 || 1.0.0-alpha.3 || 1.0.0-alpha.4
+  - '@enkhjile/srw-e2e-pnpm-core@1.1.0-alpha3.1'
 linkWorkspacePackages: true
 allowBuilds:
   pnpm: true

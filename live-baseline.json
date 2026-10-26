@@ -1,0 +1,33 @@
+{
+  "@enkhjile/srw-e2e-pnpm-core": {
+    "versions": [
+      "0.0.0-stage",
+      "1.0.0",
+      "1.1.0-alpha3.1"
+    ],
+    "tags": {
+      "latest": "1.0.0",
+      "bootstrap": "1.0.0",
+      "alpha3": "1.1.0-alpha3.1"
+    },
+    "integrities": {
+      "0.0.0-stage": "sha512-+1PMaZbiKACKc4r7bFzm/zqfAQrq2mf5+O+DaS5ov+SWQ5jWiyKlb7/6EJrKp2WaS9qvMaET+YfLjCMDW6U9ng==",
+      "1.0.0": "sha512-z5Dv7K1UhIEiYPSPlv827V7AAjkaVbVrFib/fCOMqz1G1nJVAJm9eu7H8Yyam5byKASDr7Glmg0APNpTnBzQxQ==",
+      "1.1.0-alpha3.1": "sha512-ldWdltH4TH+8soss6zto5LS1ffGYaV2UQulx3JrgabXmWAkJnJO1qGTHzaErY6ZoZ+uEGxBQBFABh/nvotwMRg=="
+    }
+  },
+  "@enkhjile/srw-e2e-pnpm-app": {
+    "versions": [
+      "0.0.0-stage",
+      "1.0.0"
+    ],
+    "tags": {
+      "latest": "1.0.0",
+      "bootstrap": "1.0.0"
+    },
+    "integrities": {
+      "0.0.0-stage": "sha512-nfNcf6ibhDze+URBUipBziLQgl5/P/6c7aL/m3XRbmem9bWrArnG6kbNOe3P6Q2f3UwXufEbMSUDuWpgBvbgjQ==",
+      "1.0.0": "sha512-MDgxMmdCZ1Jv9hhv1PlvAZ7yP7iMCkkyWTJDARp7tHft3Ru6b6m6+NxeJXsA0OqsvUDPQCuTInde3I88yoIfFg=="
+    }
+  }
+}
