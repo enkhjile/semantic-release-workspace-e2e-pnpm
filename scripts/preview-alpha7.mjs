@@ -13,7 +13,10 @@ export function assertPlan(plan,intent){
 }
 
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
-  const intent=JSON.parse(readFileSync('alpha7-live-intent.json'));
+  const document=JSON.parse(readFileSync('alpha7-live-intent.json'));
+  const branch=execFileSync('git',['branch','--show-current'],{encoding:'utf8'}).trim();
+  const intent={...document,...document.branches[branch]};
+  assert.equal(intent.branch,branch,'A literal preview intent is required for this branch');
   const root=JSON.parse(readFileSync('package.json'));
   assert.equal(root.devDependencies['semantic-release-workspace'],'1.0.0-alpha.7');
   assert.equal(intent.mode,'preview-only');
