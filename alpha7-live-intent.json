@@ -1,0 +1,15 @@
+{
+  "mode": "preview-only",
+  "manager": "pnpm",
+  "branch": "alpha",
+  "packages": [
+    {
+      "name": "@enkhjile/srw-e2e-pnpm-core",
+      "nextVersion": "1.1.0-alpha.1"
+    },
+    {
+      "name": "@enkhjile/srw-e2e-pnpm-app",
+      "nextVersion": "1.1.0-alpha.1"
+    }
+  ]
+}
