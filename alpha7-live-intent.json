@@ -1,32 +1,16 @@
 {
-  "mode": "preview-only",
-  "manager": "pnpm",
-  "branches": {
-    "alpha7-live": {
-      "branch": "alpha7-live",
-      "packages": [
-        {
-          "name": "@enkhjile/srw-e2e-pnpm-core",
-          "nextVersion": "1.1.0-alpha7.1"
-        },
-        {
-          "name": "@enkhjile/srw-e2e-pnpm-app",
-          "nextVersion": "1.1.0-alpha7.1"
-        }
-      ]
+  "mode": "publish",
+  "phase": "first-alpha",
+  "branch": "alpha7-live",
+  "channel": "alpha",
+  "expected": [
+    {
+      "name": "@enkhjile/srw-e2e-pnpm-core",
+      "version": "1.1.0-alpha7.1"
     },
-    "stable7-live": {
-      "branch": "stable7-live",
-      "packages": [
-        {
-          "name": "@enkhjile/srw-e2e-pnpm-core",
-          "nextVersion": "1.1.0"
-        },
-        {
-          "name": "@enkhjile/srw-e2e-pnpm-app",
-          "nextVersion": "1.1.0"
-        }
-      ]
+    {
+      "name": "@enkhjile/srw-e2e-pnpm-app",
+      "version": "1.1.0-alpha7.1"
     }
-  }
+  ]
 }

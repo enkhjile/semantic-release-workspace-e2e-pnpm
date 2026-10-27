@@ -1,4 +1,4 @@
-name: Alpha.7 push-triggered required-OIDC preview
+name: Alpha.7 public push cycle
 on:
   push:
     branches: [alpha7-live, stable7-live]
@@ -12,7 +12,7 @@ defaults:
   run:
     shell: bash
 jobs:
-  required-oidc-preview:
+  release:
     environment: public-npm
     runs-on: ubuntu-latest
     steps:
@@ -24,23 +24,30 @@ jobs:
           node-version: 24.22.1
           package-manager-cache: false
       - run: npm install --global npm@12.2.1
-      - run: |
-          npm install --global pnpm@12.15.0
-          pnpm install --frozen-lockfile --ignore-scripts
-      - name: Verify exact public product and literal intent guard
+      - run: npm install --global pnpm@12.15.0
+      - name: Use empty npm authentication configuration
         run: |
-          mkdir -p evidence/alpha7-preview
-          node --test scripts/preview-alpha7.test.mjs
-          node --version > evidence/alpha7-preview/tools.txt
-          command -v npm >> evidence/alpha7-preview/tools.txt
-          npm --version >> evidence/alpha7-preview/tools.txt
+          mkdir -p "$RUNNER_TEMP/live-alpha7-config"
+          touch "$RUNNER_TEMP/live-alpha7-config/user" "$RUNNER_TEMP/live-alpha7-config/global"
+          echo "npm_config_userconfig=$RUNNER_TEMP/live-alpha7-config/user" >> "$GITHUB_ENV"
+          echo "npm_config_globalconfig=$RUNNER_TEMP/live-alpha7-config/global" >> "$GITHUB_ENV"
           echo "ACCEPTANCE_NPM_PATH=$(dirname "$(command -v npm)")" >> "$GITHUB_ENV"
-      - name: Real CLI preview with no registry writes or identity requests
-        run: node scripts/preview-alpha7.mjs
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: node scripts/live-inventory.mjs
+      - run: pnpm exec node scripts/public-binding.mjs
+      - run: node --test scripts/registry-read.test.mjs
+      - run: node --test scripts/live-cycle-alpha7.test.mjs
+      - name: Guarded public OIDC release and no-change verification
+        run: node scripts/live-cycle-alpha7.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:
-          name: alpha7-push-preview-pnpm-${{ github.run_id }}
-          path: evidence/alpha7-preview/
+          name: live-alpha7-pnpm-cycle-${{ github.sha }}
+          path: |
+            evidence/live-alpha7-cycle/
+            evidence/public-alpha7/
+      - name: Remove generated installation and configuration
+        if: always()
+        run: rm -rf node_modules "$RUNNER_TEMP/live-alpha7-config"
