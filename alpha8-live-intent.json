@@ -1,12 +1,16 @@
 {
-  "phase": "alpha8-default",
+  "phase": "alpha8-stable-promotion",
   "mode": "publish",
-  "branch": "alpha7-live",
-  "channel": "alpha",
+  "branch": "stable7-live",
+  "channel": "latest",
   "expected": [
     {
       "name": "@enkhjile/srw-e2e-pnpm-core",
-      "version": "1.2.0-alpha7.2"
+      "version": "1.2.0"
+    },
+    {
+      "name": "@enkhjile/srw-e2e-pnpm-app",
+      "version": "1.1.1"
     }
   ]
 }
