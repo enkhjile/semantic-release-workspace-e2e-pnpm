@@ -1,4 +1,4 @@
-name: Alpha.7 push-triggered required-OIDC preview
+name: Public release
 on:
   push:
     branches: [alpha7-live, stable7-live]
@@ -8,11 +8,8 @@ permissions:
 concurrency:
   group: workspace-release
   cancel-in-progress: false
-defaults:
-  run:
-    shell: bash
 jobs:
-  required-oidc-preview:
+  release:
     environment: public-npm
     runs-on: ubuntu-latest
     steps:
@@ -23,24 +20,8 @@ jobs:
         with:
           node-version: 24.22.1
           package-manager-cache: false
-      - run: npm install --global npm@12.2.1
-      - run: |
-          npm install --global pnpm@12.15.0
-          pnpm install --frozen-lockfile --ignore-scripts
-      - name: Verify exact public product and literal intent guard
-        run: |
-          mkdir -p evidence/alpha7-preview
-          node --test scripts/preview-alpha7.test.mjs
-          node --version > evidence/alpha7-preview/tools.txt
-          command -v npm >> evidence/alpha7-preview/tools.txt
-          npm --version >> evidence/alpha7-preview/tools.txt
-          echo "ACCEPTANCE_NPM_PATH=$(dirname "$(command -v npm)")" >> "$GITHUB_ENV"
-      - name: Real CLI preview with no registry writes or identity requests
-        run: node scripts/preview-alpha7.mjs
+      - run: npm install --global npm@12.2.1 pnpm@12.15.0
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/upload-artifact@v7.0.2
-        if: always()
-        with:
-          name: alpha7-push-preview-pnpm-${{ github.run_id }}
-          path: evidence/alpha7-preview/
