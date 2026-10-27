@@ -1,12 +1,7 @@
 {
-  "phase": "alpha8-stable-promotion",
-  "mode": "publish",
-  "branch": "stable7-live",
-  "channel": "latest",
-  "expected": [
-    {
-      "name": "@enkhjile/srw-e2e-pnpm-core",
-      "version": "1.2.0"
-    }
-  ]
+  "phase": "alpha8-alpha-divergence",
+  "mode": "no-change",
+  "branch": "alpha7-live",
+  "channel": "alpha",
+  "expected": []
 }
