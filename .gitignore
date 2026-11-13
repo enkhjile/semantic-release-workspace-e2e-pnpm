@@ -6,3 +6,9 @@ packages/*/dist/
 evidence/
 
 .scratch-preview-*.npmrc
+
+/vendor/shared-version-candidate.tgz
+
+/evidence/shared-version/
+
+/live/*/dist/
