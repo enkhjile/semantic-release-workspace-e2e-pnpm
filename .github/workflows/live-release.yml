@@ -1,4 +1,4 @@
-name: Shared-version alpha acceptance
+name: Alpha.10 changed-only acceptance
 on:
   push:
     branches: [alpha]
@@ -33,11 +33,9 @@ jobs:
       - run: npm install --global npm@12.2.1 pnpm@12.15.0
       - run: echo "ACCEPTANCE_NPM_CLI=$(readlink -f "$(command -v npm)")" >> "$GITHUB_ENV"
       - run: echo "ACCEPTANCE_NPM_PATH=$(dirname "$(command -v npm)")" >> "$GITHUB_ENV"
-      - name: Rebuild and verify pinned product PR candidate
-        run: node scripts/build-candidate.mjs
       - run: pnpm install --frozen-lockfile --ignore-scripts --store-dir "$RUNNER_TEMP/shared-version-pnpm-store"
       - name: Additive guard regression checks
-        run: node --test scripts/shared-plan-guard.test.mjs scripts/candidate-helpers.test.mjs scripts/network-policy.test.mjs scripts/retry-boundary.test.mjs scripts/retired-versions.test.mjs
+        run: npm test
       - name: Exact alpha plan, OIDC publication, registry and fresh-source checks
         run: node scripts/shared-live-cycle.mjs
         env:
