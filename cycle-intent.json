@@ -1,0 +1,31 @@
+{
+  "branches": {
+    "main": {
+      "mode": "publish",
+      "phase": "stable-promotion",
+      "branch": "main",
+      "channel": "latest",
+      "budgetLimit": 12,
+      "expected": [
+        {
+          "name": "@enkhjile/srw-e2e-pnpm-core",
+          "version": "1.4.0"
+        },
+        {
+          "name": "@enkhjile/srw-e2e-pnpm-app",
+          "version": "2.0.0"
+        }
+      ],
+      "unchangedMembers": []
+    },
+    "alpha": {
+      "mode": "no-change",
+      "phase": "stable-intent-alpha-nochange",
+      "branch": "alpha",
+      "channel": "alpha",
+      "budgetLimit": 12,
+      "expected": [],
+      "unchangedMembers": []
+    }
+  }
+}

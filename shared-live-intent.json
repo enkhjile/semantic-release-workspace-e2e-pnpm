@@ -1,0 +1,9 @@
+{
+  "mode": "preview",
+  "phase": "acceptance-complete",
+  "branch": "alpha",
+  "channel": "alpha",
+  "budgetLimit": 12,
+  "expected": [],
+  "unchangedMembers": []
+}
