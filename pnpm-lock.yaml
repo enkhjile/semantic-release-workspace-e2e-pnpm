@@ -182,8 +182,8 @@ importers:
   live/app:
     dependencies:
       '@enkhjile/srw-e2e-pnpm-core':
-        specifier: 1.0.0
-        version: 1.0.0
+        specifier: 1.4.0-alpha.2
+        version: 1.4.0-alpha.2
 
   live/core: {}
 
@@ -215,8 +215,8 @@ packages:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
 
-  '@enkhjile/srw-e2e-pnpm-core@1.0.0':
-    resolution: {integrity: sha512-z5Dv7K1UhIEiYPSPlv827V7AAjkaVbVrFib/fCOMqz1G1nJVAJm9eu7H8Yyam5byKASDr7Glmg0APNpTnBzQxQ==}
+  '@enkhjile/srw-e2e-pnpm-core@1.4.0-alpha.2':
+    resolution: {integrity: sha512-frI85RRAhtMhkcICOsr0ct9Xemt5HjfieXhOB+cQTViarJlpeAnY0R73lS3PpRQddjtla/XeOuKKCZfQ1TuSEw==}
 
   '@gar/promise-retry@1.0.3':
     resolution: {integrity: sha512-GmzA9ckNokPypTg10pgpeHNQe7ph+iIKKmhKu3Ob9ANkswreCx7R3cKmY781K8QK3AqVL3xVh9A42JvIAbkkSA==}
@@ -1861,7 +1861,7 @@ snapshots:
   '@colors/colors@1.5.0':
     optional: true
 
-  '@enkhjile/srw-e2e-pnpm-core@1.0.0': {}
+  '@enkhjile/srw-e2e-pnpm-core@1.4.0-alpha.2': {}
 
   '@gar/promise-retry@1.0.3': {}
 

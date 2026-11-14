@@ -1,17 +1,17 @@
 {
   "mode": "publish",
-  "phase": "core-only",
+  "phase": "manual-app",
   "branch": "alpha",
   "channel": "alpha",
   "budgetLimit": 12,
   "expected": [
     {
-      "name": "@enkhjile/srw-e2e-pnpm-core",
-      "version": "1.4.0-alpha.2"
+      "name": "@enkhjile/srw-e2e-pnpm-app",
+      "version": "1.1.0-alpha.2"
     }
   ],
   "unchangedMembers": [
-    "@enkhjile/srw-e2e-pnpm-app"
+    "@enkhjile/srw-e2e-pnpm-core"
   ],
-  "previousSourceSha": "6f38b02d526f3574e4775e12744a12b5f240eba0"
+  "previousSourceSha": "146ae716a4a43c9ff03c93214bfb7f82c808903f"
 }
