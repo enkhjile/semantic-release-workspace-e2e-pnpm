@@ -11,20 +11,20 @@
     },
     "alpha": {
       "mode": "publish",
-      "phase": "next-core-feature",
+      "phase": "next-core-fix",
       "branch": "alpha",
       "channel": "alpha",
       "budgetLimit": 12,
       "expected": [
         {
           "name": "@enkhjile/srw-e2e-pnpm-core",
-          "version": "1.5.0-alpha.1"
+          "version": "1.5.0-alpha.2"
         }
       ],
       "unchangedMembers": [
         "@enkhjile/srw-e2e-pnpm-app"
       ],
-      "previousSourceSha": "d0b61948eacc1a9ae75533201b068a902273788f"
+      "previousSourceSha": "39d508d5a19dbeeabb04e05689e171037c1024c5"
     }
   }
 }

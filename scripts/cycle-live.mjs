@@ -177,7 +177,7 @@ async function main() {
     assert.ok(ref.startsWith('refs/tags/workspace-v') || intent.expected.some(p => ref === 'refs/tags/npm/' + p.name + '@' + p.version), 'Unexpected tag');
   }
   const alphaKey = createHash('sha256').update(intent.branch).digest('hex');
-  const mutableNotes = new Set(['refs/notes/semantic-release-workspace', 'refs/notes/workspace-release-branches/' + alphaKey, 'refs/notes/workspace-release-history/' + alphaKey, 'refs/notes/semantic-release-0-workspace']);
+  const mutableNotes = new Set([...(intent.branch === 'main' ? ['refs/notes/semantic-release-workspace'] : []), 'refs/notes/workspace-release-branches/' + alphaKey, 'refs/notes/workspace-release-history/' + alphaKey, 'refs/notes/semantic-release-0-workspace']);
   for (const line of before.refs) {
     const [oid, ref] = line.split('\t');
     if (!mutableNotes.has(ref)) assert.equal(releasedRefs.get(ref), oid, `Existing ref changed: ${ref}`);
