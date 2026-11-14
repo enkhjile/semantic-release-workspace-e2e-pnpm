@@ -1,30 +1,31 @@
 {
   "branches": {
     "main": {
-      "mode": "preview",
-      "phase": "cycle-setup",
+      "mode": "publish",
+      "phase": "stable-promotion",
       "branch": "main",
       "channel": "latest",
       "budgetLimit": 12,
-      "expected": [],
+      "expected": [
+        {
+          "name": "@enkhjile/srw-e2e-pnpm-core",
+          "version": "1.4.0"
+        },
+        {
+          "name": "@enkhjile/srw-e2e-pnpm-app",
+          "version": "2.0.0"
+        }
+      ],
       "unchangedMembers": []
     },
     "alpha": {
-      "mode": "publish",
-      "phase": "app-major-alpha",
+      "mode": "no-change",
+      "phase": "stable-intent-alpha-nochange",
       "branch": "alpha",
       "channel": "alpha",
       "budgetLimit": 12,
-      "expected": [
-        {
-          "name": "@enkhjile/srw-e2e-pnpm-app",
-          "version": "2.0.0-alpha.1"
-        }
-      ],
-      "unchangedMembers": [
-        "@enkhjile/srw-e2e-pnpm-core"
-      ],
-      "previousSourceSha": "ab464abdf4c42b92154a9c528fb15c6b8432d380"
+      "expected": [],
+      "unchangedMembers": []
     }
   }
 }
