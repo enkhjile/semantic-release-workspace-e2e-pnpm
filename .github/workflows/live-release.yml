@@ -37,7 +37,9 @@ jobs:
       - name: Additive guard regression checks
         run: npm test
       - name: Exact alpha plan, OIDC publication, registry and fresh-source checks
-        run: node scripts/cycle-live.mjs
+        run: |
+          node scripts/cycle-live.mjs
+          node scripts/stable-audit.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v7.0.2
