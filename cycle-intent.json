@@ -2,7 +2,7 @@
   "branches": {
     "main": {
       "mode": "preview",
-      "phase": "stable-complete",
+      "phase": "cycle-complete",
       "branch": "main",
       "channel": "latest",
       "budgetLimit": 12,
@@ -10,21 +10,13 @@
       "unchangedMembers": []
     },
     "alpha": {
-      "mode": "publish",
-      "phase": "next-core-fix",
+      "mode": "preview",
+      "phase": "cycle-complete",
       "branch": "alpha",
       "channel": "alpha",
       "budgetLimit": 12,
-      "expected": [
-        {
-          "name": "@enkhjile/srw-e2e-pnpm-core",
-          "version": "1.5.0-alpha.2"
-        }
-      ],
-      "unchangedMembers": [
-        "@enkhjile/srw-e2e-pnpm-app"
-      ],
-      "previousSourceSha": "39d508d5a19dbeeabb04e05689e171037c1024c5"
+      "expected": [],
+      "unchangedMembers": []
     }
   }
 }
