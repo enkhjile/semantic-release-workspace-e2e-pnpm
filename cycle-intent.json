@@ -1,29 +1,30 @@
 {
   "branches": {
     "main": {
-      "mode": "no-change",
-      "phase": "stable-verifier-repair",
+      "mode": "preview",
+      "phase": "stable-complete",
       "branch": "main",
       "channel": "latest",
       "budgetLimit": 12,
       "expected": [],
-      "unchangedMembers": [],
-      "auditStable": {
-        "source": "dbde7b7693fa3040c3e6786c582dfa37ee1e6e85",
-        "parents": [
-          "97cefbd04bb925e4fb9755266d9848098448df7a",
-          "eb57bbc2195814678fe59bcf142543b6180e8607"
-        ]
-      }
+      "unchangedMembers": []
     },
     "alpha": {
-      "mode": "no-change",
-      "phase": "stable-intent-alpha-nochange",
+      "mode": "publish",
+      "phase": "next-core-feature",
       "branch": "alpha",
       "channel": "alpha",
       "budgetLimit": 12,
-      "expected": [],
-      "unchangedMembers": []
+      "expected": [
+        {
+          "name": "@enkhjile/srw-e2e-pnpm-core",
+          "version": "1.5.0-alpha.1"
+        }
+      ],
+      "unchangedMembers": [
+        "@enkhjile/srw-e2e-pnpm-app"
+      ],
+      "previousSourceSha": "d0b61948eacc1a9ae75533201b068a902273788f"
     }
   }
 }
