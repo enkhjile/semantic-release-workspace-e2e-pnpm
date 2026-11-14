@@ -6,3 +6,4 @@ allowBuilds:
 
 minimumReleaseAgeExclude:
   - semantic-release-workspace@1.0.0-alpha.10
+  - '@enkhjile/srw-e2e-pnpm-core@1.4.0-alpha.2'

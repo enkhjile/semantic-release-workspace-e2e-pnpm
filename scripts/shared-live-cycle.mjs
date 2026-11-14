@@ -246,7 +246,13 @@ async function main() {
       const consumer = mkdtempSync(join(tmpdir(), 'srw-shared-alpha-consumer-'));
       try {
         writeFileSync(join(consumer, 'package.json'), JSON.stringify({private: true, type: 'module', packageManager: native === manager ? root.packageManager : 'npm@12.2.1', dependencies: Object.fromEntries(intent.expected.map(p => [p.name, p.version]))}));
-        const approved = intent.expected.map(p => `  - ${JSON.stringify(p.name + '@' + p.version)}`).join('\n');
+        const approvedEntries = intent.expected.map(p => p.name + '@' + p.version);
+        if (app) {
+          const corePin = JSON.parse(readFileSync('live/app/package.json')).dependencies[names[0]];
+          assert.match(corePin, /^\d+\.\d+\.\d+(?:-alpha\.\d+)?$/);
+          approvedEntries.push(names[0] + '@' + corePin);
+        }
+        const approved = [...new Set(approvedEntries)].map(entry => `  - ${JSON.stringify(entry)}`).join('\n');
         if (native === 'yarn') writeFileSync(join(consumer, '.yarnrc.yml'), `nodeLinker: pnp\nenableScripts: false\nnpmPreapprovedPackages:\n${approved}\n`);
         if (native === 'pnpm') writeFileSync(join(consumer, 'pnpm-workspace.yaml'), `minimumReleaseAgeExclude:\n${approved}\n`);
         const install = native === 'yarn' ? ['install', '--no-immutable'] : ['install', ...(native === 'pnpm' ? ['--no-frozen-lockfile'] : ['--no-audit', '--no-fund']), '--ignore-scripts', '--registry=https://registry.npmjs.org'];
