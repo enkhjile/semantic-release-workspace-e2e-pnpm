@@ -12,3 +12,5 @@ test('app removes the obsolete public diagnosticLane export', () => {assert.equa
 
 import {formatAnswer} from '../live/core/index.js';
 test('core formats an answer with an explicit unit', () => assert.equal(formatAnswer('units'), '42 units'));
+
+test('core formats an answer without an omitted unit suffix', () => assert.equal(formatAnswer(), '42'));

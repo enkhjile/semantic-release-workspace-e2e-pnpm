@@ -7,4 +7,4 @@ export const independentCoreMarker = true;
 
 export const frozenRecoveryMarker = true;
 
-export const formatAnswer = (unit) => `${answer()} ${unit}`;
+export const formatAnswer = (unit = '') => `${answer()} ${unit}`.trim();
