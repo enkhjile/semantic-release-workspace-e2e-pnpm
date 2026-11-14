@@ -1,7 +1,7 @@
 name: Alpha.10 native checks
 on:
   pull_request:
-    branches: [alpha]
+    branches: [alpha, main]
 permissions:
   contents: read
 jobs:

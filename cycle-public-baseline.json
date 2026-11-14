@@ -1,0 +1,37 @@
+{
+  "@enkhjile/srw-e2e-pnpm-core": {
+    "tags": {
+      "bootstrap": "1.0.0",
+      "alpha3": "1.1.0-alpha3.1",
+      "latest": "1.2.0",
+      "alpha": "1.4.0-alpha.3"
+    },
+    "versions": {
+      "0.0.0-stage": "sha512-+1PMaZbiKACKc4r7bFzm/zqfAQrq2mf5+O+DaS5ov+SWQ5jWiyKlb7/6EJrKp2WaS9qvMaET+YfLjCMDW6U9ng==",
+      "1.0.0": "sha512-z5Dv7K1UhIEiYPSPlv827V7AAjkaVbVrFib/fCOMqz1G1nJVAJm9eu7H8Yyam5byKASDr7Glmg0APNpTnBzQxQ==",
+      "1.1.0-alpha3.1": "sha512-ldWdltH4TH+8soss6zto5LS1ffGYaV2UQulx3JrgabXmWAkJnJO1qGTHzaErY6ZoZ+uEGxBQBFABh/nvotwMRg==",
+      "1.1.0-alpha7.1": "sha512-j1xcdu+3i9IP834vugiPNNMsFeceNW9XeVW6+xOg/PNdABM6ig5i0MpahoIfYD7l9fDCVoYNIHfoztzd5Aa06g==",
+      "1.1.0": "sha512-9xUYV/r1mQZYB5M4OrTVQyEoXmJ8VNOxZN/XDPwXHjDJ2KbJ7DzbuPP2q8ta3aYzy+20/fbZB6FJPQrOAztlLw==",
+      "1.2.0-alpha7.1": "sha512-Cbv842P0TvNr2OiI+ts3+8hbop8zYf/H+PWW9r5yBJic5XWS6OnAXrTSd/8ste8Yhiqrf1VzBlf4Ep+xq4wGbg==",
+      "1.2.0-alpha7.2": "sha512-HuXa+NHllNwd/GPYdZ+QSIdCLBKPaEnjou54oydxVzRmnb9Fq2t0Z8I00LpGJts9WPCcfzsyRwjzobC62wzKfA==",
+      "1.2.0": "sha512-mQyUSGyTFi+15MdrH5711kWcKkc1/ARw+OpgPEdOYNG+b6M5vpbmV+Iv4pJjdNgl4JTCyeOVuBGpUsE/eBF7FQ==",
+      "1.3.0-alpha7.1": "sha512-wctPrzYlBjrPxe7jBbSrRgj0RQitgduLGgyKIfSAPw0YZXCfLTvFZVbV8m9ANi31bwbP35IK7jxOFKWFA3Gs9Q==",
+      "1.4.0-alpha.1": "sha512-vvcxTtzPBcOwFzfHTqHoWFWLYfypXSpww7nNX5vSNMu78C3rKF+nZS4c0ugBeLo34wHPpu0+AAMICr73f2ir7w==",
+      "1.4.0-alpha.2": "sha512-frI85RRAhtMhkcICOsr0ct9Xemt5HjfieXhOB+cQTViarJlpeAnY0R73lS3PpRQddjtla/XeOuKKCZfQ1TuSEw==",
+      "1.4.0-alpha.3": "sha512-mZ8gy8VyHkU0tZzJXUqvwBfk9guD3x5lTPyfMTIHNWef4ip8KnlWtndZh4yKa4R4PEr6hSoWs/JOHtxItsWy8w=="
+    }
+  },
+  "@enkhjile/srw-e2e-pnpm-app": {
+    "tags": {
+      "bootstrap": "1.0.0",
+      "latest": "1.0.0",
+      "alpha": "1.1.0-alpha.3"
+    },
+    "versions": {
+      "1.0.0": "sha512-MDgxMmdCZ1Jv9hhv1PlvAZ7yP7iMCkkyWTJDARp7tHft3Ru6b6m6+NxeJXsA0OqsvUDPQCuTInde3I88yoIfFg==",
+      "1.1.0-alpha.1": "sha512-5NrmTK7EBSQ7rhyjFhpHbRpyk+vuqx446cMpZIKq5VuLe2MBt3mymSc3EslhzM4yUOvCB16E8jIEppYuMu523w==",
+      "1.1.0-alpha.2": "sha512-Up7JvFOIw7wFN24cSMqIm0hK8iQCorPWLUFJgYfPCQdE4zZQEQqHW78oOSMd+mHekHmNPmeJlHhxhPHzguVljQ==",
+      "1.1.0-alpha.3": "sha512-FVS7uIYIWmoKKsNmLNkoYUyOpleG7yV++VVNYTbXqRryJwHlLc5aQZssCmE8jzhXkCD9NdjjbxvKblEjui7IVw=="
+    }
+  }
+}
