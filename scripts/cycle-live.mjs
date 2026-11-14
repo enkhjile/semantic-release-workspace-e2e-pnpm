@@ -273,6 +273,14 @@ async function main() {
         const execute = ['--input-type=module', '-e', `import {answer} from '${target.name}';console.log(answer())`];
         const output = native === 'yarn' ? execFileSync('yarn', ['exec', 'node', ...execute], {cwd: consumer, encoding: 'utf8'}) : execFileSync('node', execute, {cwd: consumer, encoding: 'utf8'});
         assert.equal(output.trim(), '42');
+        let feature = null;
+        if (target.name === names[0] && ['next-core-feature', 'next-core-fix'].includes(intent.phase)) {
+          const argument = intent.phase === 'next-core-feature' ? "'units'" : '';
+          const expectedOutput = intent.phase === 'next-core-feature' ? '42 units' : '42';
+          const code = `import assert from 'node:assert/strict';import {formatAnswer} from '${target.name}';const output=formatAnswer(${argument});assert.equal(output,${JSON.stringify(expectedOutput)});console.log(JSON.stringify({output}));`;
+          const args = ['--input-type=module', '-e', code];
+          feature = JSON.parse(native === 'yarn' ? execFileSync('yarn', ['exec', 'node', ...args], {cwd:consumer,encoding:'utf8'}) : execFileSync('node',args,{cwd:consumer,encoding:'utf8'}));
+        }
         let resolution = null;
         if (app) {
           const expectedPin = JSON.parse(readFileSync('live/app/package.json')).dependencies[names[0]];
@@ -280,7 +288,7 @@ async function main() {
           const inspectArgs = ['--input-type=module', '-e', inspect];
           resolution = JSON.parse(native === 'yarn' ? execFileSync('yarn', ['exec', 'node', ...inspectArgs], {cwd: consumer, encoding: 'utf8'}) : execFileSync('node', inspectArgs, {cwd: consumer, encoding: 'utf8'}));
         }
-        save(`native-${native}-consumer`, {manager: native, target, output: output.trim(), resolution});
+        save(`native-${native}-consumer`, {manager: native, target, output: output.trim(), resolution, feature});
         if (native === 'npm') writeFileSync(`${directory}/native-provenance-verification.txt`, execFileSync('npm', ['audit', 'signatures'], {cwd: consumer, encoding: 'utf8'}));
       } finally { rmSync(consumer, {recursive: true, force: true}); }
     }

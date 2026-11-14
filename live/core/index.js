@@ -6,3 +6,5 @@ export const diagnosticLane = 'alpha';
 export const independentCoreMarker = true;
 
 export const frozenRecoveryMarker = true;
+
+export const formatAnswer = (unit) => `${answer()} ${unit}`;
