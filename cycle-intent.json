@@ -10,13 +10,21 @@
       "unchangedMembers": []
     },
     "alpha": {
-      "mode": "preview",
-      "phase": "cycle-setup",
+      "mode": "publish",
+      "phase": "app-major-alpha",
       "branch": "alpha",
       "channel": "alpha",
       "budgetLimit": 12,
-      "expected": [],
-      "unchangedMembers": []
+      "expected": [
+        {
+          "name": "@enkhjile/srw-e2e-pnpm-app",
+          "version": "2.0.0-alpha.1"
+        }
+      ],
+      "unchangedMembers": [
+        "@enkhjile/srw-e2e-pnpm-core"
+      ],
+      "previousSourceSha": "ab464abdf4c42b92154a9c528fb15c6b8432d380"
     }
   }
 }
