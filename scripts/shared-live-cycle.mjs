@@ -32,7 +32,8 @@ export function resolvePublishPlan(loggedPlan, journal, head) {
 
 async function main() {
   const intent = JSON.parse(readFileSync('shared-live-intent.json'));
-  const binding = {version: '1.0.0-alpha.10'};
+  const binding = JSON.parse(readFileSync(new URL('../package.json', import.meta.resolve('semantic-release-workspace'))));
+  assert.equal(binding.version, '1.0.0-alpha.10');
   const baseline = JSON.parse(readFileSync('shared-public-baseline.json'));
   const root = JSON.parse(readFileSync('package.json'));
   const manager = root.packageManager?.split('@')[0] ?? 'npm';
@@ -80,7 +81,13 @@ async function main() {
     assert.ok(output.includes(`Run automated release from branch ${intent.branch}`), 'CLI must select the intended branch');
     const calls = readFileSync(audit, 'utf8').trim().split('\n').filter(Boolean).map(JSON.parse);
     assert.ok(calls.some(call => call.transport === 'observer'));
-    if (readonly) assertReadOnlyNetwork(calls);
+    if (readonly) {
+      // A frozen retry may still create its aggregate GitHub release, but may
+      // never repeat registry writes, signing, or OIDC token requests.
+      const checked = label === 'release' && allMembersPublished(currentJournal(), intent, head)
+        ? calls.filter(call => call.host !== 'api.github.com') : calls;
+      assertReadOnlyNetwork(checked);
+    }
     save(label + '-http-summary', networkSummary(calls));
     if (child.status !== 0) {
       const pending = currentJournal();
@@ -127,6 +134,7 @@ async function main() {
     if (plan) {
       assert.equal(plan.release.branch, 'alpha');
       assert.equal(plan.release.prerelease, 'alpha');
+    assert.equal(plan.dependencyPolicy, 'independent');
       save('plan', plan);
     }
     assert.deepEqual(await snapshot(), before, 'Setup preview changed source, refs or public inventory');
@@ -137,6 +145,7 @@ async function main() {
     plan = resolvePublishPlan(plan, frozenBefore, head);
     assertIntent(plan, intent, head);
     assert.equal(plan.release.prerelease, 'alpha');
+    assert.equal(plan.dependencyPolicy, 'independent');
   } else {
     if (plan) assert.equal(plan.packages.filter(p => !p.private && p.nextVersion).length, 0);
     else assert.match(preview, /There are no relevant changes|There are no changes to release/);
@@ -189,7 +198,14 @@ async function main() {
     if (frozenBefore) assertFrozenRecovery(journal, frozenBefore);
     const changelog = git('show', journal.execution.prepared + ':CHANGELOG.md');
     for (const expected of intent.expected) { assert.ok(changelog.includes(expected.name)); assert.ok(changelog.includes(expected.version)); }
+    assert.deepEqual(git('ls-tree', '-r', '--name-only', journal.execution.prepared).trim().split('\n').filter(path => /(^|\/)CHANGELOG\.md$/.test(path)), ['CHANGELOG.md']);
     save('root-changelog', {prepared: journal.execution.prepared, content: changelog});
+    const githubResponse = await fetch('https://api.github.com/repos/' + process.env.GITHUB_REPOSITORY + '/releases/tags/' + encodeURIComponent(journal.batchTag), {headers: {authorization: 'Bearer ' + process.env.GITHUB_TOKEN, accept: 'application/vnd.github+json'}});
+    assert.equal(githubResponse.status, 200, 'Aggregate GitHub release missing');
+    const githubRelease = await githubResponse.json();
+    assert.equal(githubRelease.prerelease, true);
+    for (const expected of intent.expected) { assert.ok(githubRelease.body.includes(expected.name)); assert.ok(githubRelease.body.includes(expected.version)); }
+    save('aggregate-github-release', {url: githubRelease.html_url, tag: githubRelease.tag_name, prerelease: githubRelease.prerelease, body: githubRelease.body});
     save('journal', journal);
   }
   for (const expected of intent.expected) {
