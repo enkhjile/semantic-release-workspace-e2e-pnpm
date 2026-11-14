@@ -1,9 +1,7 @@
-# Shared workspace release acceptance (pnpm)
+# pnpm workspace acceptance fixture
 
-This existing public repository exercises the reviewed shared-version candidate on literal `alpha`. `live/core` and `live/app` retain their public identities; `live/private` verifies private workspace exclusion. The app consumes the core through the native workspace dependency form.
+The alpha.10 acceptance cycle completed six bounded prerelease uploads using the registry-published semantic-release-workspace@1.0.0-alpha.10. The alpha branch now runs native checks only, with contents-read permission and no OIDC grant or publication step. The retained live-release.yml filename and publisher configuration support future explicitly authorized tests.
 
-`checks.yml` verifies the pinned candidate and native install on pull requests. `live-release.yml` is the only publishing workflow, retains the existing `public-npm` trust environment, and runs only on pushes to `alpha`. Committed setup intent is preview-only. Actual publication requires an exact shared plan, existing identities, registry cleanup completion, retired-version exclusions, and the fixed per-repository budget.
+The scenarios covered independent core releases, a manual app dependency upgrade, independent app changes retaining that pin, one root changelog with preserved history, aggregate GitHub prereleases, and a deliberate postpublish failure followed by a fresh-checkout retry with zero duplicate uploads.
 
-The first clean shared batch legitimately includes the initial package histories. Later core-only and app-only conventional commits test unchanged-member synchronization. A fixed retry-phase hook leaves a fully uploaded pending batch on attempt 1; the same GitHub run retries on a fresh runner with unchanged source and bytes. Stable behavior is tested only in controlled fixtures outside this repository.
-
-Old refs and diagnostic fixtures are archived in the local acceptance report. Deleted registry versions remain permanently reserved in shared-retired-versions.json. Bootstrap1.0.0 may coexist only with the initial shared batch and is then removed separately. No product release or new public identity is created here.
+Released core versions are 1.4.0-alpha.1 through 1.4.0-alpha.3; app versions are 1.1.0-alpha.1 through 1.1.0-alpha.3. App explicitly depends on core 1.4.0-alpha.2. Source versions remain restored; release manifests and changelog history are retained in package tags and prepared refs. Do not delete release journals, retained artifacts, or package tags.
