@@ -7,13 +7,14 @@
     "live/*"
   ],
   "scripts": {
-    "test": "node scripts/build-live.mjs && node --test scripts/*.test.mjs",
+    "test": "node scripts/build-live.mjs && node --test scripts/network-policy.test.mjs scripts/registry-read.test.mjs scripts/consumer.test.mjs scripts/retry-boundary.test.mjs scripts/candidate-helpers.test.mjs",
     "release:live": "semantic-release",
     "build": "node scripts/build-live.mjs"
   },
   "devDependencies": {
     "semantic-release": "25.0.9",
-    "semantic-release-workspace": "file:vendor/shared-version-candidate.tgz",
-    "pnpm": "12.15.0"
+    "semantic-release-workspace": "1.0.0-alpha.10",
+    "pnpm": "12.15.0",
+    "@semantic-release/github": "12.0.7"
   }
 }

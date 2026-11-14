@@ -1,86 +1,30 @@
 {
   "@enkhjile/srw-e2e-pnpm-core": {
-    "distTags": {
+    "versions": {
+      "0.0.0-stage": "sha512-+1PMaZbiKACKc4r7bFzm/zqfAQrq2mf5+O+DaS5ov+SWQ5jWiyKlb7/6EJrKp2WaS9qvMaET+YfLjCMDW6U9ng==",
+      "1.0.0": "sha512-z5Dv7K1UhIEiYPSPlv827V7AAjkaVbVrFib/fCOMqz1G1nJVAJm9eu7H8Yyam5byKASDr7Glmg0APNpTnBzQxQ==",
+      "1.1.0-alpha3.1": "sha512-ldWdltH4TH+8soss6zto5LS1ffGYaV2UQulx3JrgabXmWAkJnJO1qGTHzaErY6ZoZ+uEGxBQBFABh/nvotwMRg==",
+      "1.1.0-alpha7.1": "sha512-j1xcdu+3i9IP834vugiPNNMsFeceNW9XeVW6+xOg/PNdABM6ig5i0MpahoIfYD7l9fDCVoYNIHfoztzd5Aa06g==",
+      "1.1.0": "sha512-9xUYV/r1mQZYB5M4OrTVQyEoXmJ8VNOxZN/XDPwXHjDJ2KbJ7DzbuPP2q8ta3aYzy+20/fbZB6FJPQrOAztlLw==",
+      "1.2.0-alpha7.1": "sha512-Cbv842P0TvNr2OiI+ts3+8hbop8zYf/H+PWW9r5yBJic5XWS6OnAXrTSd/8ste8Yhiqrf1VzBlf4Ep+xq4wGbg==",
+      "1.2.0-alpha7.2": "sha512-HuXa+NHllNwd/GPYdZ+QSIdCLBKPaEnjou54oydxVzRmnb9Fq2t0Z8I00LpGJts9WPCcfzsyRwjzobC62wzKfA==",
+      "1.2.0": "sha512-mQyUSGyTFi+15MdrH5711kWcKkc1/ARw+OpgPEdOYNG+b6M5vpbmV+Iv4pJjdNgl4JTCyeOVuBGpUsE/eBF7FQ==",
+      "1.3.0-alpha7.1": "sha512-wctPrzYlBjrPxe7jBbSrRgj0RQitgduLGgyKIfSAPw0YZXCfLTvFZVbV8m9ANi31bwbP35IK7jxOFKWFA3Gs9Q=="
+    },
+    "tags": {
       "bootstrap": "1.0.0",
       "alpha3": "1.1.0-alpha3.1",
-      "alpha": "1.3.0-alpha7.1",
-      "latest": "1.2.0"
-    },
-    "versions": {
-      "0.0.0-stage": {
-        "integrity": "sha512-+1PMaZbiKACKc4r7bFzm/zqfAQrq2mf5+O+DaS5ov+SWQ5jWiyKlb7/6EJrKp2WaS9qvMaET+YfLjCMDW6U9ng==",
-        "sha1": "bccf9eb85878282ebe7b73e4df38cb0383e353cb"
-      },
-      "1.0.0": {
-        "integrity": "sha512-z5Dv7K1UhIEiYPSPlv827V7AAjkaVbVrFib/fCOMqz1G1nJVAJm9eu7H8Yyam5byKASDr7Glmg0APNpTnBzQxQ==",
-        "sha1": "a1e59ca16178a8a015c483b37402578db052d981"
-      },
-      "1.1.0-alpha3.1": {
-        "integrity": "sha512-ldWdltH4TH+8soss6zto5LS1ffGYaV2UQulx3JrgabXmWAkJnJO1qGTHzaErY6ZoZ+uEGxBQBFABh/nvotwMRg==",
-        "sha1": "5e32128063f4ac1f8a0538311e1da0ac091bde8d"
-      },
-      "1.1.0-alpha7.1": {
-        "integrity": "sha512-j1xcdu+3i9IP834vugiPNNMsFeceNW9XeVW6+xOg/PNdABM6ig5i0MpahoIfYD7l9fDCVoYNIHfoztzd5Aa06g==",
-        "sha1": "b484f9254f20cff72e645e21c0ccd9d8c2f306bd"
-      },
-      "1.1.0": {
-        "integrity": "sha512-9xUYV/r1mQZYB5M4OrTVQyEoXmJ8VNOxZN/XDPwXHjDJ2KbJ7DzbuPP2q8ta3aYzy+20/fbZB6FJPQrOAztlLw==",
-        "sha1": "fe576b19052c38473c9335351c634756fc11c952"
-      },
-      "1.2.0-alpha7.1": {
-        "integrity": "sha512-Cbv842P0TvNr2OiI+ts3+8hbop8zYf/H+PWW9r5yBJic5XWS6OnAXrTSd/8ste8Yhiqrf1VzBlf4Ep+xq4wGbg==",
-        "sha1": "4fb427b54babeec9fd733efac3656259e16549af"
-      },
-      "1.2.0-alpha7.2": {
-        "integrity": "sha512-HuXa+NHllNwd/GPYdZ+QSIdCLBKPaEnjou54oydxVzRmnb9Fq2t0Z8I00LpGJts9WPCcfzsyRwjzobC62wzKfA==",
-        "sha1": "a9575d94b24e77f39891442cbc42c0db008e56b8"
-      },
-      "1.2.0": {
-        "integrity": "sha512-mQyUSGyTFi+15MdrH5711kWcKkc1/ARw+OpgPEdOYNG+b6M5vpbmV+Iv4pJjdNgl4JTCyeOVuBGpUsE/eBF7FQ==",
-        "sha1": "461215dde3c29a217a3e2cb76cf4b8d3a0519dc7"
-      },
-      "1.3.0-alpha7.1": {
-        "integrity": "sha512-wctPrzYlBjrPxe7jBbSrRgj0RQitgduLGgyKIfSAPw0YZXCfLTvFZVbV8m9ANi31bwbP35IK7jxOFKWFA3Gs9Q==",
-        "sha1": "aacde0c316910050be340425bb1b104a55b4e1e8"
-      }
+      "latest": "1.2.0",
+      "alpha": "1.3.0-alpha7.1"
     }
   },
   "@enkhjile/srw-e2e-pnpm-app": {
-    "distTags": {
-      "bootstrap": "1.0.0",
-      "alpha4": "1.1.0-alpha4.1",
-      "latest": "1.1.0",
-      "alpha": "1.1.1-alpha7.2"
-    },
     "versions": {
-      "0.0.0-stage": {
-        "integrity": "sha512-nfNcf6ibhDze+URBUipBziLQgl5/P/6c7aL/m3XRbmem9bWrArnG6kbNOe3P6Q2f3UwXufEbMSUDuWpgBvbgjQ==",
-        "sha1": "13bfa35f30aa154497ecc40d91d38b13dc234f4f"
-      },
-      "1.0.0": {
-        "integrity": "sha512-MDgxMmdCZ1Jv9hhv1PlvAZ7yP7iMCkkyWTJDARp7tHft3Ru6b6m6+NxeJXsA0OqsvUDPQCuTInde3I88yoIfFg==",
-        "sha1": "ff349cf5195b408370186ac2396b3bb7594e243c"
-      },
-      "1.1.0-alpha4.1": {
-        "integrity": "sha512-M9/rJYrK3boTZigyHC8+5mF2Y4EXraGPRG3A/IrLlWT/GyM/JXJyTkfVejLQdubWcMhuff7Lj+kxBK53MhEZyQ==",
-        "sha1": "b801410905ae71fcfaafa8b9c5b6e8ad604bab0b"
-      },
-      "1.1.0-alpha7.1": {
-        "integrity": "sha512-Nc13eD+/NjT2Hi0dhJY3vzuc+v6CLnUdyAZa3zWsAvEXX2xrBmbZLUCh8ZRTqlfkTGBrnUaInHGq7y49RKHOIQ==",
-        "sha1": "7a067a6f8809b5e0be1d7c487735688adf41076f"
-      },
-      "1.1.0": {
-        "integrity": "sha512-2qmBgEdSumBiVNRpvlYTHJcr0+AA0864Is+WK77pyd/d5okIapSseZu182V1pKYGtRs6V3aXh7MFMlkPqmwnVA==",
-        "sha1": "c85ada671e91139f6e9941f10776cb1b8c86ed2f"
-      },
-      "1.1.1-alpha7.1": {
-        "integrity": "sha512-d4TQeTztZnIhEA7wl3zZEcsFLtwu30eXjO1Nol1yP27gANG+GvZqyRl6nv/5tIKpy+vhUd/MruVBITBfP57p2A==",
-        "sha1": "b6311f008cd7f90add84e22431afe5ccbeedf183"
-      },
-      "1.1.1-alpha7.2": {
-        "integrity": "sha512-6J0wDPrvq46+eBesq0w33DSWC41IzGNnn/rYq6WqtIcG6RTfF+OWGSKmILO/A3fGbEE0enM5PtR3zhDy1Drutw==",
-        "sha1": "3aea9d6848143813f38436e9871ae5bd6c17eeb3"
-      }
+      "1.0.0": "sha512-MDgxMmdCZ1Jv9hhv1PlvAZ7yP7iMCkkyWTJDARp7tHft3Ru6b6m6+NxeJXsA0OqsvUDPQCuTInde3I88yoIfFg=="
+    },
+    "tags": {
+      "latest": "1.0.0",
+      "bootstrap": "1.0.0"
     }
   }
 }
